@@ -11,7 +11,7 @@ My Dad loved LeScript, and created a lot of work and personal documents with it.
 
 It takes as a single argument the filename of the LeScript file, and blats the HTML output to STDOUT.  A sample actual usage might be:
 
-    lescript2html.py MYLESCDOC.LES > my_lescript_doc.html
+    lescript2html.py MYLESDOC.LES > my_lescript_doc.html
 
 In the case that it finds a LeScript code that it doesn't understand, it'll error and barf up the raw Python bytes object to STDOUT.  This should be considered a bug in the script, so please feel free to open an issue, including the STDOUT of the bytes object and possibly attaching the actual LeScript file in question.
 
