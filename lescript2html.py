@@ -2,6 +2,9 @@
 
 # Convert LeScript files to HTML, generally maintaining formatting
 
+# Copyright (c) 2025, emerson@hayseed.net
+# https://hayseed.net/~emerson
+
 from pathlib import Path
 from optparse import OptionParser
 import re
