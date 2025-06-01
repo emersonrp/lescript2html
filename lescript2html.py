@@ -74,9 +74,11 @@ def parse_formatting_code(matchobj):
     if code & 0x04: char = b"<b>" + char + b"</b>"
     if code & 0x08: char = b"<u>" + char + b"</u>"
     if code & 0x10: char = b"<i>" + char + b"</i>"
+    if code & 0x20: char = char # Never seen this but there is 0x40 so this probably exists
+    if code & 0x40: char = char # Dunno what this represents but I found it in the wild
     return char
 
-lesc_bytes = re.sub(rb'\xfe([\x01-\x1f])(.)\1\xfe', parse_formatting_code, lesc_bytes)
+lesc_bytes = re.sub(rb'\xfe([\x01-\x4f])(.)\1\xfe', parse_formatting_code, lesc_bytes)
 
 # OK, now we have each letter bracketed with HTML codes.  That's spammy, so we
 # eliminate dupe tags.  Do this in reverse order from how we add them above.
